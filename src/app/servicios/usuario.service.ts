@@ -8,14 +8,13 @@ import { URL_SERVICE, URL_PAGES } from '../config/config';
   providedIn: 'root'
 })
 export class UsuarioService {
-public token:string;
+ token:string="";
   constructor(private http:HttpClient) { 
   
   }
 
   login(usuario:Usuario){
     let url=URL_SERVICE;
-    console.log(usuario);
     return this.http.post(url,usuario).pipe(
       map((res:any)=>{
           usuario.token=res;
@@ -34,8 +33,7 @@ public token:string;
     
     return this.http.get(url,{headers: new HttpHeaders().set('Authorization', this.token)}).pipe(
       map((res:any)=>{
-          console.log(res);
-          return res;
+          return res.sites;
       }),
       catchError(err=>throwError(err))
       )

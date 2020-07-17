@@ -1,16 +1,16 @@
 
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-      <form [formGroup]="form" class="col-6" (ngSubmit)="logueando()">
+      <form ngNativeValidate [formGroup]="form" class="col-6" (ngSubmit)="logueando()">
         <div class="form-group ">
             <img src="assets/images/LOGO1.png" >
             <div class="inputWithIcon">
-                <input formControlName="email" type="text" class="form-control"  placeholder="Usuario">
+                <input formControlName="email" type="text" class="form-control"  placeholder="Usuario" required>
                 <i class="material-icons">account_circle</i>
 
             </div>
             <div class="inputWithIcon">
-                <input  formControlName="password" type="password" class="form-control"  placeholder="Password">
+                <input  formControlName="password" type="password" class="form-control"  placeholder="Password"  required>
             </div>
             <br>
             <div class="custom-control custom-checkbox">

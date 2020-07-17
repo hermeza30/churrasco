@@ -5,8 +5,8 @@ import { PaginaComponent } from './paginas/pagina/pagina.component';
 import{Routes,RouterModule} from '@angular/router';
 const appRoutes:Routes=[
     {path:'login',component:LoginComponent},
-    {path:'pagina',component:PaginaComponent},
+    {path:'pagina',component:PaginaComponent,canActivate:[LoginGuard]},
     {path:'**',component:LoginComponent}
 ];
 
-export const APP_ROUTES=RouterModule.forRoot(appRoutes);
+export const APP_ROUTES=RouterModule.forRoot(appRoutes,{useHash:true});

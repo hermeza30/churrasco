@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UsuarioService } from '../../servicios/usuario.service';
 
 @Component({
   selector: 'app-pagina',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PaginaComponent implements OnInit {
-
-  constructor() { }
+public sitios:any[];
+  constructor(public _sitios:UsuarioService) { }
 
   ngOnInit(): void {
+    this.obtenerSitios();
   }
-
+  obtenerSitios(){
+    this._sitios.obtenerSitiosDeInteres().subscribe((res)=>{
+        this.sitios=res;
+        console.log(this.sitios);
+    }); 
+  }
 }

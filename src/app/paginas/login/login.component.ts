@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   public usuario:Usuario;
   public form:FormGroup;
-  constructor(public _usuarioServicio:UsuarioService, public route:Router) { }
+  constructor(public _usuarioServicio:UsuarioService, public router:Router) { }
 
   ngOnInit(): void {
   this.crearForm();
@@ -32,10 +32,8 @@ export class LoginComponent implements OnInit {
     }
     let usr=new Usuario(this.form.value.email,this.form.value.password);
     this._usuarioServicio.login(usr).subscribe(res=>{
-      console.log(res);
-      this._usuarioServicio.obtenerSitiosDeInteres().subscribe((res)=>{
-           this.route.navigate['/pagina'];
-      });
+      this.router.navigate(['/pagina']);
+     
     });
     
   }

@@ -1,1 +1,29 @@
-<p>pagina works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card" style="background-color: #2f295e;">
+            <div class="card-body">
+                <h3 class="card-title"></h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>imagen</th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let s of sitios">
+                            <td>{{s.nombre}}</td>
+                            <td>{{s.nombre}}</td>
+                            <td>{{s.ubicacion._lat}}</td>
+                            <td>{{s.ubicacion._long}}</td>
+
+                            <td><img [src]="s.url_imagen" alt=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>  

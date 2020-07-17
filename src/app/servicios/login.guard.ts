@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsuarioService } from './usuario.service';
 
@@ -7,7 +7,7 @@ import { UsuarioService } from './usuario.service';
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-    constructor(public _usuarioService:UsuarioService){
+    constructor(public _usuarioService:UsuarioService,public router:Router){
       
     }
   canActivate(): boolean {
@@ -16,6 +16,7 @@ export class LoginGuard implements CanActivate {
       return true;
     }else{
       console.log("No tiene permisos");
+      this.router.navigate(['/login']);
       return false;
 
     }
