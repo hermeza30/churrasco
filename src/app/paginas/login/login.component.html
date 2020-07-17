@@ -20,6 +20,9 @@
           <div class="float-right">
               <button type="submit" class="btn btn-success" style="background-color:#2f295e;" >Log in</button>
           </div>
+          <div *ngIf="!logueado" class="alert alert-danger">
+            <strong>No se encontó usuario!</strong> El usuario no se encuentra registrado.
+          </div>
         </div>
       </form>   
     </div>
