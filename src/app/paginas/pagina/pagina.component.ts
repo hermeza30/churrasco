@@ -21,11 +21,11 @@ public id="exampleModal";
     this.obtenerSitios();
   }
   obtenerSitios(){
-    this.sitios=sit;//Moqueado cuando no se puede acceder a la api
-    // this._sitios.obtenerSitiosDeInteres().subscribe((res)=>{
-    //     this.sitios=res;
-    //     console.log(this.sitios)
-    // }); 
+    // this.sitios=sit;//Moqueado cuando no se puede acceder a la api
+    this._sitios.obtenerSitiosDeInteres().subscribe((res)=>{
+        this.sitios=res;
+        console.log(this.sitios)
+    }); 
   }
   verEnMaps(ubicacion:any){
     if(ubicacion._lat){

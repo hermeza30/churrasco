@@ -8,6 +8,8 @@ body {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 5px;
+  margin-right: 20px;
+  height:auto;
 }
 
 .pointer {
@@ -69,15 +71,4 @@ img {
 }
 .container{
   margin-top: 100px;
-}
-.mat-card {
-  max-width: 400px;
-  margin: 2em auto;
-  text-align: center;
-  background-color: #2f295e;
-  
-}
-
-.mat-form-field {
-  display: block;
 }

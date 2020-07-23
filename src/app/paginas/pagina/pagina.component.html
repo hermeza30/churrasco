@@ -4,19 +4,16 @@
         <p class="h3">These are some of the destination we can ofer for FREE!</p>
         <p class="h6">DISCLAIMER! we only offer  Google Maps based travel</p>
     </div>
-    <div class="row align-items-stretch justify-content-start card-deck">
+    <div class="row align-items-stretch justify-content-start">
 
             <div *ngFor="let s of sitios" class="card" style="width: 18rem;">
-                <img [src]="s.url_imagen" class="card-img-top" alt="...">
-                <div class="card-body">
+                <img [src]="s.url_imagen" class="card-img-top">
+                <div class="card-body d-flex flex-column">
                   <h5 class="card-title" style="color: black;">{{s.nombre}}</h5>
                   <p class="card-text" style="color: black;">{{s.descripcion}}</p>
-                  
-                <button (click)="verEnMaps(s.ubicacion)" type="button" class="btn btn-primary btn-lg btn-block pointer" style="background-color: #2f295e ;"  data-toggle="modal" data-target="#exampleModal">
+                   <button (click)="verEnMaps(s.ubicacion)" type="button" class="btn btn-primary btn-lg btn-block pointer" style="background-color: #2f295e ; margin-top: auto;"  data-toggle="modal" data-target="#exampleModal">
                     Ver en Maps
                 </button>
-                  
-
                 </div>
               </div>
     </div>

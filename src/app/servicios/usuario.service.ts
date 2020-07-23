@@ -10,7 +10,7 @@ import { URL_SERVICE, URL_PAGES } from '../config/config';
 export class UsuarioService {
  token:string="";
   constructor(private http:HttpClient) { 
-  
+    this.cargarStorage();
   }
 
   login(usuario:Usuario,recordar:boolean){
@@ -26,6 +26,13 @@ export class UsuarioService {
       }),
       catchError(err=>throwError(err))
       )
+  }
+  cargarStorage() {
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+    } else {
+      this.token = '';
+    }
   }
   estaLogueado(){
     return this.token.length>0
