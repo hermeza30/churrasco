@@ -3,6 +3,8 @@ import { Usuario } from '../../modelos/usuario.model';
 import { UsuarioService } from '../../servicios/usuario.service';
 import {  FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { sit } from '../pagina/sit';
+
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,7 @@ export class LoginComponent implements OnInit {
   public usuario:Usuario;
   public form:FormGroup;
   public logueado:boolean=true;
+  public sitios=sit;
   constructor(public _usuarioServicio:UsuarioService, public router:Router) { }
 
   ngOnInit(): void {
@@ -32,7 +35,8 @@ export class LoginComponent implements OnInit {
       return;
     }
     let usr=new Usuario(this.form.value.email,this.form.value.password);
-    this._usuarioServicio.login(usr).subscribe(res=>{
+    let recordar=this.form.value.recordar;
+    this._usuarioServicio.login(usr,recordar).subscribe(res=>{
       this.router.navigate(['/pagina']);
       
      

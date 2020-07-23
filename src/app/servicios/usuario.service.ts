@@ -13,12 +13,15 @@ export class UsuarioService {
   
   }
 
-  login(usuario:Usuario){
+  login(usuario:Usuario,recordar:boolean){
     let url=URL_SERVICE;
     return this.http.post(url,usuario).pipe(
       map((res:any)=>{
           usuario.token=res;
-          this.token=res;  
+          this.token=res;
+          if(recordar){
+            this.guardarStorage(this.token,usuario);
+          }  
           return res;
       }),
       catchError(err=>throwError(err))
@@ -27,10 +30,15 @@ export class UsuarioService {
   estaLogueado(){
     return this.token.length>0
   }
+  guardarStorage(token: string, usuario:Usuario) {
+    this.token = token;
+    console.log("guardar");
+    localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+  }
   obtenerSitiosDeInteres(){
 
     let url=URL_PAGES;
-    
     return this.http.get(url,{headers: new HttpHeaders().set('Authorization', this.token)}).pipe(
       map((res:any)=>{
           return res.sites;

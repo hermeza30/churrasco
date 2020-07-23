@@ -1,9 +1,10 @@
 
-<div class="container h-100">
+ <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-      <form ngNativeValidate [formGroup]="form" class="col-6" (ngSubmit)="logueando()">
+      <form ngNativeValidate [formGroup]="form" class="col-4" (ngSubmit)="logueando()">
         <div class="form-group ">
             <img src="assets/images/LOGO1.png" >
+
             <div class="inputWithIcon">
                 <input formControlName="email" type="text" class="form-control"  placeholder="Usuario" required>
                 <i class="material-icons">account_circle</i>
@@ -13,17 +14,20 @@
                 <input  formControlName="password" type="password" class="form-control"  placeholder="Password"  required>
             </div>
             <br>
-            <div class="custom-control custom-checkbox">
-                <input formControlName="recordar" type="checkbox" class="custom-control-input" id="recordar">
-                <label class="custom-control-label" for="recordar">Recordar</label>
-              </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-check-input" id="recordar" formControlName="recordar">
+            <label class="form-check-label" for="recordar">Recorar</label>
+          </div>
           <div class="float-right">
-              <button type="submit" class="btn btn-success" style="background-color:#2f295e;" >Log in</button>
+              <button type="submit" class="btn btn-success pointer" style="background-color:#2f295e;" >Log in</button>
           </div>
           <div *ngIf="!logueado" class="alert alert-danger">
             <strong>No se encontó usuario!</strong> El usuario no se encuentra registrado.
           </div>
         </div>
+        
+
+
       </form>   
     </div>
-  </div> 
+  </div>  
